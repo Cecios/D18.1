@@ -1,0 +1,6 @@
+.cardImage{
+    object-fit: cover;
+}
+.MyCardStyle{
+    border: solid 2.3px red!important;
+}
