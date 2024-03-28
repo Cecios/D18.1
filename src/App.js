@@ -2,7 +2,8 @@ import React from "react";
 import { BrowserRouter,Routes,Route } from "react-router-dom";
 import ErrorPage from "./pages/ErrorPage";
 import LoginPage from "./pages/LoginPage";
-
+import ProtectedRoutes from "./middleware/ProtectedRoutes";
+import HomePage from "./pages/HomePage";
 function App() {
   return (
     
@@ -12,11 +13,10 @@ function App() {
           <Route exact path="/" element={<LoginPage/>} /> 
           {/* Route protette: tutte le route che metto all'interno di questo route che ha come element 'ProtectedRoutes' 
           saranno i nostri outlet ovvero il componente che l'utente ha richiesto */}
-          {/* <Route element={<ProtectedRoutes/>}>
+          <Route element={<ProtectedRoutes/>}>
+            <Route path="/home" element={<HomePage/>}/>
             
-
-          </Route> */}
-
+          </Route>
 
 
           <Route path="*" element={<ErrorPage/>}/>
