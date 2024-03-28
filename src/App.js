@@ -1,13 +1,28 @@
-import MyFooter from "./components/myFooter/MyFooter";
-import Main from "./components/main/Main"
-import MyNavbar from "./components/myNavbar/MyNavbar";
+import React from "react";
+import { BrowserRouter,Routes,Route } from "react-router-dom";
+import ErrorPage from "./pages/ErrorPage";
+import LoginPage from "./pages/LoginPage";
+
 function App() {
   return (
-    <div className="App">
-      <MyNavbar/>
-      <Main/>
-      <MyFooter/>
-    </div>
+    
+      <BrowserRouter>
+        <Routes>
+          {/* L'exact patch con lo / stabilisce la mia pagina principale */}
+          <Route exact path="/" element={<LoginPage/>} /> 
+          {/* Route protette: tutte le route che metto all'interno di questo route che ha come element 'ProtectedRoutes' 
+          saranno i nostri outlet ovvero il componente che l'utente ha richiesto */}
+          {/* <Route element={<ProtectedRoutes/>}>
+            
+
+          </Route> */}
+
+
+
+          <Route path="*" element={<ErrorPage/>}/>
+        </Routes>
+      </BrowserRouter>
+    
   );
 }
 
