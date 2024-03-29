@@ -22,22 +22,16 @@ const Login= () => {
     const onSubmit = async (ev) => {
         ev.preventDefault();
 
-        // let  options = {
-        //     method: 'POST',
-        //     headers: {
-        //        'Content-Type': 'application/json',
-        //        Authorization: ``
-        //            },
-        //    body:JSON.stringify(loginForm),
-        //    }
+        const  options = {
+            method: 'POST',
+            headers: {
+               'Content-Type': 'application/json',
+               Authorization: ``
+                   },
+           body:JSON.stringify(loginForm),
+           }
            try{
-               let resp = await fetch(`http://localhost:3030/login`,{
-                method: 'POST',
-                headers:{
-                    'Content-type': 'application/json'
-                },
-                body: JSON.stringify(loginForm)
-               } )
+               let resp = await fetch(`http://localhost:3030/login`, options)
                if (resp.status >= 200 && resp.status < 300){
    
                    console.log('Request successfully done');
@@ -54,8 +48,15 @@ const Login= () => {
   return (
     <>
         <Container>
+            
             <Row>
-                <Col>
+                <Col 
+                    className='text-center'
+                >
+                <h2
+                    className='text-bold'>
+                    Epibooks login
+                </h2>
                 <div className='card my-5'>
                 <form
                     onSubmit={onSubmit}
@@ -88,6 +89,7 @@ const Login= () => {
                     </Button>
                 </form>
                 </div>
+                <div>Non sei ancora registrato? <a href='#'>Registrati ora!</a></div>
                 </Col>
             </Row>
         </Container>

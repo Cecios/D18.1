@@ -8,13 +8,13 @@ import ErrorAlert from '../loading/ErrorAlert'
 const MainContent = () => {
 
     const session = JSON.parse(localStorage.getItem("auth"))
-    console.log(session);
+    //console.log(session);
 
     const [error, setError] = useState('')
     const [items, setItems] = useState(null)
     const [isLoading, setIsLoading] = useState(false)
 
-    console.log(items);
+    //console.log(items);
 
     const getItems = async () => {
         setIsLoading(true)
