@@ -1,13 +1,9 @@
 import React from 'react'
-import Login from '../components/login/Login.jsx'
-import RegisterForm from '../components/login/RegisterForm.jsx'
+import MainLogin from '../components/login/mainLogin'
 const LoginPage = () => {
   return (
     <>
-        
-          <Login/>
-          <div><br /></div>
-          {/* <RegisterForm/> */}
+        <MainLogin/>
     </>
   )
 }

@@ -1,13 +1,23 @@
 import { useState } from 'react'
+import { Button, Container } from 'react-bootstrap'
 
-const RegisterForm = () => {
-    const [signupFormData, setSignupFormData] = useState({})
+const RegisterForm = ({toggleForm}) => {
 
+    const [signupFormData, setSignupFormData] = useState({
+        userName:'',
+        password:'',
+        email:'',
+        age: 0,
+        role:"user"
+        
+    })
+    //console.log(signupFormData);
     const onChangeInput = (e) => {
         const { name, value } = e.target
+        const newValue = name === 'age' ? Number(value) : value
         setSignupFormData({
             ...signupFormData,
-            [name]: value,
+            [name]: newValue,
         })
     }
 
@@ -15,11 +25,11 @@ const RegisterForm = () => {
         e.preventDefault()
         try {
             return await fetch(
-                `/users`,
+                'http://localhost:3030/register-user',
                 {
                     method: 'POST',
                     headers: {
-                        'Content-Type': 'application/json',
+                        'Content-Type': 'application/json'
                     },
                     body: JSON.stringify(signupFormData),
                 }
@@ -30,17 +40,60 @@ const RegisterForm = () => {
     }
 
     return (
-        <form onSubmit={onSubmit}>
-            <input onChange={onChangeInput} type="text" name="userName" />
-            <input onChange={onChangeInput} type="password" name="password" />
-            <input onChange={onChangeInput} type="email" name="email" />
-            <input onChange={onChangeInput} type="age" name="age" />
-            <input onChange={onChangeInput} type="text" name="role" />
+        <>
+        <Container>
+            <form onSubmit={onSubmit}>
+                <div className='mb-3'>
+                    <input 
+                        onChange={onChangeInput} 
+                        aria-describedby='userNameHelp'
+                        type="text" 
+                        name="userName"
+                        placeholder='Inserisci un username' />
+                </div>
+                <div className='mb-3'>
+                <input 
+                    onChange={onChangeInput}
+                    aria-describedby='passwordHelp' 
+                    type="password" 
+                    name="password"
+                    placeholder='Inserisci una password' />
+                </div>
+                <div className='mb-3'>
+                <input 
+                    onChange={onChangeInput}
+                    aria-describedby='emailHelp' 
+                    type="email" 
+                    name="email"
+                    placeholder='Inserisci una email' />
+                </div>
+                <div className='mb-3'>
+                <input 
+                    onChange={onChangeInput} 
+                    aria-describedby='ageHelp'
+                    type="number" 
+                    name="age"
+                    placeholder="Inserisci un'età" />
+                </div>
+                <input 
+                    onChange={onChangeInput}
+                    aria-describedby='roledHelp'
+                    type="text" 
+                    name="role" 
+                    value="user"
+                    readOnly 
+                    className='d-none' />
 
-            <button className="btn btn-primary" type="submit">
-                Registrati
-            </button>
-        </form>
+                <Button  
+                    type="submit">
+                    Registrati
+                </Button>
+            </form>
+            <div onClick={() => {toggleForm()}}>
+                Sei già registrato? <a href="#"> Accedi ora! </a>
+            </div>
+        </Container>
+        </>
     )
 }
 export default RegisterForm

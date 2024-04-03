@@ -4,7 +4,7 @@ import { Button } from 'react-bootstrap'
 import { useNavigate } from 'react-router-dom'
 
 
-const Login= () => {
+const Login= ({toggleForm}) => {
 
     const navigate = useNavigate()
     const [loginForm, setLoginForm] = useState({
@@ -46,17 +46,10 @@ const Login= () => {
            catch(error) {console.log(error)};
    }
   return (
-    <>
-        <Container>
-            
-            <Row>
+    <>    
                 <Col 
                     className='text-center'
                 >
-                <h2
-                    className='text-bold'>
-                    Epibooks login
-                </h2>
                 <div className='card my-5'>
                 <form
                     onSubmit={onSubmit}
@@ -89,10 +82,11 @@ const Login= () => {
                     </Button>
                 </form>
                 </div>
-                <div>Non sei ancora registrato? <a href='#'>Registrati ora!</a></div>
+                <div onClick={() => {toggleForm()}}>
+                    Non sei ancora registrato? <a href='#'>Registrati ora!</a>
+                </div>
                 </Col>
-            </Row>
-        </Container>
+
     </>
   )
 }
