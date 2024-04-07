@@ -14,7 +14,7 @@ const MainContent = () => {
     const [items, setItems] = useState([])
     const [isLoading, setIsLoading] = useState(false)
 
-    //console.log(items);
+    console.log(items);
 
     const getItems = async () => {
         setIsLoading(true)
@@ -36,7 +36,7 @@ const MainContent = () => {
     }
     useEffect(()=>{
         getItems()
-    },[])
+    },[session])
 
     return (
     <>
@@ -52,7 +52,7 @@ const MainContent = () => {
         </Container>
         <Row>
             <Col>       
-
+                
             </Col>
             <Col>    
                 <SideBar/>
