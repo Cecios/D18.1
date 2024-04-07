@@ -1,7 +1,8 @@
 import React from 'react'
 import useSession from '../hooks/useSession'
 import MainLayout from '../components/layouts/MainLayout'
-import MainContent from '../components/homePage/MainContent'
+import MainContent from '../components/mainContent/MainContent'
+
 const HomePage = () => {
   
     const loggedUser = useSession()

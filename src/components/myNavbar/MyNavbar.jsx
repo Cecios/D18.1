@@ -1,4 +1,3 @@
-import React from 'react'
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
@@ -6,9 +5,7 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 import Logout from '../logout/Logout'; 
 import useSession from '../../hooks/useSession'
 const MyNavbar = () => {
-
   const session = useSession();
-
     return (
         <Navbar expand="lg" className="bg-body-tertiary">
           <Container>
@@ -24,10 +21,8 @@ const MyNavbar = () => {
                     Another action
                   </NavDropdown.Item>
                   {session && (
-                    <NavDropdown.Item href="#action/3.3">
-                    <button className='btn btn-primary'>
-                            Aggiungi libro
-                    </button>
+                    <NavDropdown.Item href="#">
+                      Something
                     </NavDropdown.Item>)}
                   <NavDropdown.Divider />
                   <NavDropdown.Item href="#action/3.4">

@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react'
-import { Container, Row } from 'react-bootstrap'
+import { Container, Row, Col } from 'react-bootstrap'
 import LoadingSpinner from '../loading/LoadingSpinner'
 import ErrorAlert from '../loading/ErrorAlert'
-
+import SideBar from '../sideBar/SideBar'
 
 
 const MainContent = () => {
@@ -11,7 +11,7 @@ const MainContent = () => {
     //console.log(session);
 
     const [error, setError] = useState('')
-    const [items, setItems] = useState(null)
+    const [items, setItems] = useState([])
     const [isLoading, setIsLoading] = useState(false)
 
     //console.log(items);
@@ -19,7 +19,7 @@ const MainContent = () => {
     const getItems = async () => {
         setIsLoading(true)
         try{
-            const response = await fetch('http://localhost:3030/users',{
+            const response = await fetch('http://localhost:3030/books',{
                 method:"GET",
                 headers: {
                     "Content-type": 'application/json',
@@ -50,6 +50,14 @@ const MainContent = () => {
                 )}
             </Row>
         </Container>
+        <Row>
+            <Col>       
+
+            </Col>
+            <Col>    
+                <SideBar/>
+            </Col>
+        </Row>
     </>
   )
 }
