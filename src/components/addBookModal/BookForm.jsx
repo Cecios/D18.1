@@ -33,12 +33,14 @@ const BookForm = () => {
     const handleOnSubmit = async (ev) => {
         ev.preventDefault();
         if (file) {
+            
             try {
                 const uploadedFile = await uploadFile(file)
                 const bodyToSend = {
                     ...formData,
                     cover: uploadedFile.source
                 }
+             
                 const response = await fetch('http://localhost:3030/books',{
                     method:'POST',
                     headers: {

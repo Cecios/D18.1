@@ -3,7 +3,6 @@ import { Col } from 'react-bootstrap'
 import { Button } from 'react-bootstrap'
 import { useNavigate } from 'react-router-dom'
 
-
 const Login= ({toggleForm}) => {
 
     const navigate = useNavigate()
@@ -12,6 +11,9 @@ const Login= ({toggleForm}) => {
         password:'',
     })
 
+    const handleLoginWithGithub = () => {
+        window.location.href = `http://localhost:3030/auth/github`
+    }
     const handleOnChange = (ev)=>{        
         const {name,value} = ev.target
         setLoginForm({
@@ -84,6 +86,9 @@ const Login= ({toggleForm}) => {
                 </div>
                 <div onClick={() => {toggleForm()}}>
                     Non sei ancora registrato? <a href='#'>Registrati ora!</a>
+                </div>
+                <div>
+                    <button onClick={handleLoginWithGithub}>Login con Github</button>
                 </div>
                 </Col>
 
