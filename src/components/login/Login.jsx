@@ -12,7 +12,7 @@ const Login= ({toggleForm}) => {
     })
 
     const handleLoginWithGithub = () => {
-        window.location.href = `http://localhost:3030/auth/github`
+        window.location.href = "http://localhost:3030/auth/github"
     }
     const handleOnChange = (ev)=>{        
         const {name,value} = ev.target
@@ -88,7 +88,9 @@ const Login= ({toggleForm}) => {
                     Non sei ancora registrato? <a href='#'>Registrati ora!</a>
                 </div>
                 <div>
-                    <button onClick={handleLoginWithGithub}>Login con Github</button>
+                    <button
+                        type='button' 
+                        onClick={handleLoginWithGithub}>Login con Github</button>
                 </div>
                 </Col>
 
