@@ -4,6 +4,7 @@ import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import Logout from '../logout/Logout'; 
 import useSession from '../../hooks/useSession'
+
 const MyNavbar = () => {
   const session = useSession();
     return (

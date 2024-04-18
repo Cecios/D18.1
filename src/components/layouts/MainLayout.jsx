@@ -3,6 +3,7 @@ import MyNavbar from '../myNavbar/MyNavbar'
 const MainLayout = ({children}) => {
   return (
     <>
+    
       <MyNavbar/>
       {children}
 
