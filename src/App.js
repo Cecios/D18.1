@@ -10,14 +10,11 @@ function App() {
     
       <BrowserRouter>
         <Routes>
-          {/* L'exact patch con lo / stabilisce la mia pagina principale */}
           <Route exact path="/" element={<LoginPage/>} />
-          {/* Route protette: tutte le route che metto all'interno di questo route che ha come element 'ProtectedRoutes' 
-          saranno i nostri outlet ovvero il componente che l'utente ha richiesto */}
+          {/* Protecred Routes*/}
           <Route path="/success" element={<Success/>}/>
           <Route element={<ProtectedRoutes/>}>
             <Route path="/home" element={<HomePage/>}/>
-            
           </Route>
 
 
